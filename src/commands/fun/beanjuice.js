@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 
+// Displays Zach's bean juice gif.
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('beanjuice')

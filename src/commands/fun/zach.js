@@ -1,18 +1,19 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require('@discordjs/voice');
 
+// Plays the Zaaach audio clip.
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('getshiton')
-		.setDescription('Get shit on!'),
+		.setName('zach')
+		.setDescription('It\'s Zach.'),
 	async execute(interaction) {
 		const player = createAudioPlayer();
 
 		player.on('error', error => {
-			console.error(`Error: ${error.message} with resource.`);
+			console.error(`Error: ${error.message} with resource ${error.resource.metadata.title}`);
 		});
 
-		const resource = createAudioResource('./media/bunit.ogg');
+		const resource = createAudioResource('./src/media/zach.ogg');
 		player.play(resource);
 
 		const connection = joinVoiceChannel({
@@ -21,7 +22,7 @@ module.exports = {
 			adapterCreator: interaction.guild.voiceAdapterCreator,
 		});
 
-		interaction.reply({ content: 'GOT EM!', ephemeral: true });
+		interaction.reply({ content: 'ZAAACH!', ephemeral: true });
 
 		const subscription = connection.subscribe(player);
 

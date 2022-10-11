@@ -1,18 +1,19 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require('@discordjs/voice');
 
+// Plays the it's corn kid audio clip.
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('zach')
-		.setDescription('It\'s Zach.'),
+		.setName('itscorn')
+		.setDescription('I can\'t imagine a more beautiful thing.'),
 	async execute(interaction) {
 		const player = createAudioPlayer();
 
 		player.on('error', error => {
-			console.error(`Error: ${error.message} with resource.`);
+			console.error(`Error: ${error.message} with resource ${error.resource.metadata.title}`);
 		});
 
-		const resource = createAudioResource('./media/zach.ogg');
+		const resource = createAudioResource('./src/media/itscorn.ogg');
 		player.play(resource);
 
 		const connection = joinVoiceChannel({
@@ -21,7 +22,7 @@ module.exports = {
 			adapterCreator: interaction.guild.voiceAdapterCreator,
 		});
 
-		interaction.reply({ content: 'ZAAACH!', ephemeral: true });
+		interaction.reply({ content: 'A big lump with knobs! It\'s corn!', ephemeral: true });
 
 		const subscription = connection.subscribe(player);
 

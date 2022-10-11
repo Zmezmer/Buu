@@ -1,18 +1,19 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require('@discordjs/voice');
 
+// Plays the Goku further beyond audio.
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('racist')
-		.setDescription('That\'s racist!'),
+		.setName('furtherbeyond')
+		.setDescription('Even further beyond!'),
 	async execute(interaction) {
 		const player = createAudioPlayer();
 
 		player.on('error', error => {
-			console.error(`Error: ${error.message} with resource.`);
+			console.error(`Error: ${error.message} with resource ${error.resource.metadata.title}`);
 		});
 
-		const resource = createAudioResource('./media/thatsracist.ogg');
+		const resource = createAudioResource('./src/media/furtherbeyond.ogg');
 		player.play(resource);
 
 		const connection = joinVoiceChannel({
@@ -21,12 +22,12 @@ module.exports = {
 			adapterCreator: interaction.guild.voiceAdapterCreator,
 		});
 
-		interaction.reply({ content: 'GOT EM!', ephemeral: true });
+		interaction.reply({ content: 'OVER 9000!', ephemeral: true });
 
 		const subscription = connection.subscribe(player);
 
 		if (subscription) {
-			setTimeout(() => connection.destroy(), 3_000);
+			setTimeout(() => connection.destroy(), 15_000);
 		}
 	},
 };

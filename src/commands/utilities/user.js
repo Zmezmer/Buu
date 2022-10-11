@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 
+// Displays user stats. WIP
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('user')

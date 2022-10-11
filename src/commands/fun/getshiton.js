@@ -1,18 +1,19 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require('@discordjs/voice');
 
+// Plays Brody's get shit on audio clip.
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('itscorn')
-		.setDescription('I can\'t imagine a more beautiful thing.'),
+		.setName('getshiton')
+		.setDescription('Get shit on!'),
 	async execute(interaction) {
 		const player = createAudioPlayer();
 
 		player.on('error', error => {
-			console.error(`Error: ${error.message} with resource.`);
+			console.error(`Error: ${error.message} with resource ${error.resource.metadata.title}`);
 		});
 
-		const resource = createAudioResource('./media/itscorn.ogg');
+		const resource = createAudioResource('./src/media/bunit.ogg');
 		player.play(resource);
 
 		const connection = joinVoiceChannel({
@@ -21,7 +22,7 @@ module.exports = {
 			adapterCreator: interaction.guild.voiceAdapterCreator,
 		});
 
-		interaction.reply({ content: 'A big lump with knobs! It\'s corn!', ephemeral: true });
+		interaction.reply({ content: 'GOT EM!', ephemeral: true });
 
 		const subscription = connection.subscribe(player);
 
