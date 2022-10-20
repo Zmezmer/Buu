@@ -1,6 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
 
-// Will ping the bot and check the roundtrip latency.
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('ping')

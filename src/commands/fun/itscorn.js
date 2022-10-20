@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require('@discordjs/voice');
 
-// Plays the it's corn kid audio clip.
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('itscorn')

@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require('@discordjs/voice');
 
-// Plays the that's racist kid audio clip.
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('racist')

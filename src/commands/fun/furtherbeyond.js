@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require('@discordjs/voice');
 
-// Plays the Goku further beyond audio.
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('furtherbeyond')

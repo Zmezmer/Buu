@@ -2,7 +2,6 @@ const { REST, Routes } = require('discord.js');
 const fs = require('fs');
 const { clientId, guildId, token } = require('../../../config.json');
 
-// Command handler.
 module.exports = (client) => {
 	client.handleCommands = async () => {
 		const commandFolders = fs.readdirSync('./src/commands');

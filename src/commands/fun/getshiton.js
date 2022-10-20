@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require('@discordjs/voice');
 
-// Plays Brody's get shit on audio clip.
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('getshiton')

@@ -2,9 +2,9 @@ const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('beanjuice')
-		.setDescription('Always drink your bean juice.'),
+		.setName('butterdog')
+		.setDescription('It\'s butterdog. What else?'),
 	async execute(interaction) {
-		interaction.reply('https://imgur.com/DqMam5s');
+		interaction.reply('https://i.imgur.com/Nu3QK2N.png');
 	},
 };

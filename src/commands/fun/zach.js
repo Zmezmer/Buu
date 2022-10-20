@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { joinVoiceChannel, createAudioPlayer, createAudioResource } = require('@discordjs/voice');
 
-// Plays the Zaaach audio clip.
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('zach')
@@ -22,7 +21,7 @@ module.exports = {
 			adapterCreator: interaction.guild.voiceAdapterCreator,
 		});
 
-		interaction.reply({ content: 'ZAAACH!', ephemeral: true });
+		interaction.reply('https://i.imgur.com/EqRMbu9.jpg');
 
 		const subscription = connection.subscribe(player);
 
